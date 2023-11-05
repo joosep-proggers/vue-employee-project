@@ -27,7 +27,10 @@
 
         <section class="modal-body" id="modalDescription">
           <slot name="body">
-            {{ employeeData }}
+            <h1>Projects:</h1>
+            <div v-for="project in employeeData.projects" v-bind:key="project">
+              {{ project }}
+            </div>
           </slot>
         </section>
 
@@ -53,11 +56,10 @@
     bottom: 0;
     left: 0;
     right: 0;
-    background-color: rgba(0, 0, 0, 0);
+    background-color: rgba(0, 0, 0, 0.3);
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 10vw;
   } 
 
   .modal {
@@ -66,6 +68,7 @@
     overflow-x: auto;
     display: flex;
     flex-direction: column;
+    width: 70%;
   }
 
   .modal-header {
@@ -104,8 +107,8 @@
     right: 0;
     border: none;
     font-size: 5vh;
-    padding: 1vh;
-    margin-right: 1vh;
+    margin-left: 1vw;
+    margin-right: 1vw;
     cursor: pointer;
     font-weight: bold;
     color: #4AAE9B;

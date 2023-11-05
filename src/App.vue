@@ -69,16 +69,19 @@ import axios from "axios"
 }
 </script>
 
-<template>
-  <div id="app">
-    <div v-for="position in positions" v-bind:key="position">
+<template> 
+    <div class="position" v-for="position in positions" v-bind:key="position">
       <h1> {{ position }} </h1>
       <div v-for="employee in employees" v-bind:key="employee.fname">
         <EmployeeDefault @click="showModal(employee)" v-if="employee.position == position" :fname="employee.fname" :lname="employee.lname"/>
-        <DetailViewModal v-if="selectedEmployee" :employeeData="selectedEmployee" v-show="isModalVisible" @close="closeModal"/>
       </div>
     </div>
-  </div>
+    <div>
+      <DetailViewModal v-if="selectedEmployee" :employeeData="selectedEmployee" v-show="isModalVisible" @close="closeModal"/>
+    </div>
+    <div>
+      <font-awesome-icon :icon="['fas', 'spinner']" spin size="6x" />
+    </div>
 </template>
 
 <style>
@@ -89,6 +92,13 @@ import axios from "axios"
   text-align: center;
   color: #2c3e50;
   margin-top: 60px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.position {
+  width: 30vw;
 }
 
 h1, h2 {
