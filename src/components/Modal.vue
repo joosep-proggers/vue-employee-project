@@ -36,7 +36,9 @@
 
         <footer class="modal-footer">
           <slot name="footer">
-            This is the default footer!
+            <h1>Contact details:</h1>
+            <p v-if="employeeData.contact_details.email">E-mail: {{ employeeData.contact_details.email }}</p>
+            <a href="tel:{{employeeData.contact_details.phone}}" v-if="employeeData.contact_details.phone">Phone: {{ employeeData.contact_details.phone }}</a>
           </slot>
         </footer>
       </div>
@@ -80,7 +82,6 @@
   .modal-footer {
     padding: 5vw;
     display: flex;
-    font-size: 2vh;
   }
 
   .modal-header {
@@ -123,5 +124,9 @@
   .modal-fade-enter-active,
   .modal-fade-leave-active {
     transition: opacity .2s ease;
+  }
+
+  a {
+    text-decoration: none;
   }
 </style>

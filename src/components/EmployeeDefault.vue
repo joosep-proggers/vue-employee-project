@@ -11,14 +11,19 @@
 
 
 <template>
-	<div>
-		<h2 class="employee-name"> {{ fname}} {{ lname }} </h2>
+	<div class="employee">
+		<p class="employee-name"> {{ fname}} {{ lname }} </p>
 	</div>
 </template>
 
 <style>
 	.employee-name{
 		cursor: pointer;
-		margin: 1vw;
+		margin: auto;
+		width: max-content;
+		font-size: 2vh;
+	}
+	.employee{
+		margin: 1vh;
 	}
 </style>
